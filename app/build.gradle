@@ -63,4 +63,7 @@ dependencies {
 
     // ConstraintLayout
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+
+    // Tap target view
+    compile 'com.getkeepsafe.taptargetview:taptargetview:1.6.0'
 }

@@ -5,4 +5,5 @@
     <string name="no_food_matches_your_search">No food matches your search</string>
     <string name="search_food">Search food</string>
     <string name="retry">Retry</string>
+    <string name="click_here_to_explore_an_endless_list_of_food">Click here to explore an endless list of food!</string>
 </resources>

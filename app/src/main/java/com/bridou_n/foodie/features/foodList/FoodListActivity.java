@@ -1,5 +1,6 @@
 package com.bridou_n.foodie.features.foodList;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,8 @@ import com.bridou_n.foodie.API.FoodieService;
 import com.bridou_n.foodie.AppSingleton;
 import com.bridou_n.foodie.R;
 import com.bridou_n.foodie.models.Food;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.jakewharton.rxbinding.support.v7.widget.RxSearchView;
 import com.jakewharton.rxbinding.view.RxView;
 
@@ -36,6 +40,7 @@ import static android.view.View.GONE;
 
 public class FoodListActivity extends AppCompatActivity {
     private static final String TAG = "FOODLIST_ACTIVITY";
+    private static final String PREF_TUTO_KEY = "tutoPref";
 
     private FoodSavedRecyclerViewAdapter foodSavedAdapter;
     private FoodSearchedRecyclerViewAdapter foodSearchedAdapter;
@@ -45,6 +50,7 @@ public class FoodListActivity extends AppCompatActivity {
     @Inject Realm realm;
     @Inject FoodieService api;
 
+    @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.rv) RecyclerView rv;
     @BindView(R.id.loading) ConstraintLayout loading;
     @BindView(R.id.empty) ConstraintLayout empty;
@@ -59,6 +65,9 @@ public class FoodListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_list);
         ButterKnife.bind(this);
         AppSingleton.appComponent().inject(this);
+
+        setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.food_list_menu);
 
         RealmResults<Food> foodSaved = realm.where(Food.class).findAllSortedAsync(new String[]{"title"}, new Sort[]{Sort.ASCENDING});
 
@@ -80,12 +89,27 @@ public class FoodListActivity extends AppCompatActivity {
         rv.setAdapter(foodSavedAdapter);
 
         presenter = new FoodListPresenter(this, api);
+
+        if (!getPreferences(Context.MODE_PRIVATE).getBoolean(PREF_TUTO_KEY, false)) {
+            showTutorial();
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         presenter.takeView(this);
+    }
+
+    public void showTutorial() {
+        TapTargetView.showFor(this,
+                TapTarget.forToolbarMenuItem(toolbar,
+                R.id.action_search_food, getString(R.string.search_food),
+                getString(R.string.click_here_to_explore_an_endless_list_of_food))
+                .cancelable(false)
+                .dimColor(R.color.primaryText)
+                .drawShadow(true));
+        getPreferences(Context.MODE_PRIVATE).edit().putBoolean(PREF_TUTO_KEY, true).apply();
     }
 
     public void hideAll() {

@@ -8,15 +8,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.bridou_n.foodie.features.foodList.FoodListActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
     <!-- List of data -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <!-- Empty view -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/empty"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
@@ -57,6 +68,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/loading"
         android:visibility="gone"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -94,6 +106,7 @@
     <!-- Error view -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/error"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
