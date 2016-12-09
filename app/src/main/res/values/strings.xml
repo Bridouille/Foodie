@@ -3,4 +3,6 @@
     <string name="searching_food">Searching food …</string>
     <string name="you_dont_have_any_saved_food">Your don\'t have any saved food yet</string>
     <string name="no_food_matches_your_search">No food matches your search</string>
+    <string name="search_food">Search food</string>
+    <string name="retry">Retry</string>
 </resources>

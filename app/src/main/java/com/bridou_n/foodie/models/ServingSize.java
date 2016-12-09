@@ -31,7 +31,7 @@ public class ServingSize {
     private String namePt;
     @SerializedName("proportion")
     @Expose
-    private Integer proportion;
+    private Double proportion;
     @SerializedName("name")
     @Expose
     private String name;
@@ -215,7 +215,7 @@ public class ServingSize {
      * @return
      *     The proportion
      */
-    public Integer getProportion() {
+    public Double getProportion() {
         return proportion;
     }
 
@@ -224,7 +224,7 @@ public class ServingSize {
      * @param proportion
      *     The proportion
      */
-    public void setProportion(Integer proportion) {
+    public void setProportion(Double proportion) {
         this.proportion = proportion;
     }
 

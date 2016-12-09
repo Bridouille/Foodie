@@ -23,20 +23,20 @@ import io.realm.RealmRecyclerViewAdapter;
  * Created by bridou_n on 09/12/2016.
  */
 
-public class FoodRecyclerViewAdapter extends RealmRecyclerViewAdapter<Food, FoodRecyclerViewAdapter.FoodHolder> {
+public class FoodSavedRecyclerViewAdapter extends RealmRecyclerViewAdapter<Food, FoodSavedRecyclerViewAdapter.FoodHolder> {
 
     private static final String TAG = "SAVED_FOOD_RV_ADAPTER";
 
     private Context ctx;
-    private OnFoodClick listener;
+    private Realm realm;
 
-    public FoodRecyclerViewAdapter(@NonNull Context context,
-                                   @Nullable OrderedRealmCollection<Food> data,
-                                   boolean autoUpdate,
-                                   OnFoodClick listener) {
+    public FoodSavedRecyclerViewAdapter(@NonNull Context context,
+                                        @Nullable OrderedRealmCollection<Food> data,
+                                        boolean autoUpdate,
+                                        Realm realm) {
         super(context, data, autoUpdate);
         ctx = context;
-        this.listener = listener;
+        this.realm = realm;
     }
 
     public class FoodHolder extends RecyclerView.ViewHolder {
@@ -53,7 +53,9 @@ public class FoodRecyclerViewAdapter extends RealmRecyclerViewAdapter<Food, Food
             title.setText(food.getTitle());
             category.setText(food.getCategory());
             action.setOnClickListener(v -> {
-                listener.onFoodClicked(food);
+                int id = food.getId();
+
+                realm.executeTransactionAsync(tRealm -> tRealm.where(Food.class).equalTo("id", id).findFirst().deleteFromRealm());
             });
         }
 
@@ -67,9 +69,5 @@ public class FoodRecyclerViewAdapter extends RealmRecyclerViewAdapter<Food, Food
     @Override
     public void onBindViewHolder(FoodHolder holder, int position) {
         holder.bindTo(getItem(position));
-    }
-
-    interface OnFoodClick {
-        void onFoodClicked(Food f);
     }
 }

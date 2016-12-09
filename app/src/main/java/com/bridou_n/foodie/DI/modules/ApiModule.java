@@ -64,7 +64,7 @@ public class ApiModule {
     }
 
     @Provides @Singleton
-    public OkHttpClient providesFoursquareOkhttpClient(@Named("injectToken") Interceptor injectTokenInterceptor,
+    public OkHttpClient providesFoodieOkhttpClient(@Named("injectToken") Interceptor injectTokenInterceptor,
                                                        @Named("logging") Interceptor loggingInterceptor) {
         return new OkHttpClient.Builder()
                 .addInterceptor(injectTokenInterceptor)
@@ -88,7 +88,7 @@ public class ApiModule {
     }
 
     @Provides @Singleton
-    public FoodieService providesFoursquareService(Retrofit retrofit) {
+    public FoodieService providesFoodieService(Retrofit retrofit) {
         return retrofit.create(FoodieService.class);
     }
 }

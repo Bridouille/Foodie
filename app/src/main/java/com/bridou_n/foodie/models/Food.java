@@ -10,19 +10,19 @@ public class Food extends RealmObject {
 
     @SerializedName("fiber")
     @Expose
-    private Integer fiber;
+    private Double fiber;
     @SerializedName("protein")
     @Expose
-    private Integer protein;
+    private Double protein;
     @SerializedName("pcsingram")
     @Expose
-    private Integer pcsingram;
+    private Double pcsingram;
     @SerializedName("verified")
     @Expose
     private Boolean verified;
     @SerializedName("fat")
     @Expose
-    private Integer fat;
+    private Double fat;
     @SerializedName("gramsperserving")
     @Expose
     private Integer gramsperserving;
@@ -34,7 +34,7 @@ public class Food extends RealmObject {
     private String pcstext;
     @SerializedName("carbohydrates")
     @Expose
-    private Integer carbohydrates;
+    private Double carbohydrates;
     @SerializedName("category")
     @Expose
     private String category;
@@ -43,7 +43,7 @@ public class Food extends RealmObject {
     private String title;
     @SerializedName("mlingram")
     @Expose
-    private Integer mlingram;
+    private Double mlingram;
     @SerializedName("brand")
     @Expose
     private String brand;
@@ -52,19 +52,19 @@ public class Food extends RealmObject {
     private Integer categoryid;
     @SerializedName("cholesterol")
     @Expose
-    private Integer cholesterol;
+    private Double cholesterol;
     @SerializedName("measurementid")
     @Expose
     private Integer measurementid;
     @SerializedName("unsaturatedfat")
     @Expose
-    private Integer unsaturatedfat;
+    private Double unsaturatedfat;
     @SerializedName("showmeasurement")
     @Expose
     private Integer showmeasurement;
     @SerializedName("saturatedfat")
     @Expose
-    private Integer saturatedfat;
+    private Double saturatedfat;
     @SerializedName("typeofmeasurement")
     @Expose
     private Integer typeofmeasurement;
@@ -77,19 +77,19 @@ public class Food extends RealmObject {
     private Integer id;
     @SerializedName("sodium")
     @Expose
-    private Integer sodium;
+    private Double sodium;
     @SerializedName("headcategoryid")
     @Expose
     private Integer headcategoryid;
     @SerializedName("sugar")
     @Expose
-    private Integer sugar;
+    private Double sugar;
     @SerializedName("potassium")
     @Expose
-    private Integer potassium;
+    private Double potassium;
     @SerializedName("calories")
     @Expose
-    private Integer calories;
+    private Double calories;
     @SerializedName("servingcategory")
     @Expose
     private Integer servingcategory;
@@ -102,7 +102,7 @@ public class Food extends RealmObject {
      * @return
      *     The fiber
      */
-    public Integer getFiber() {
+    public Double getFiber() {
         return fiber;
     }
 
@@ -111,7 +111,7 @@ public class Food extends RealmObject {
      * @param fiber
      *     The fiber
      */
-    public void setFiber(Integer fiber) {
+    public void setFiber(Double fiber) {
         this.fiber = fiber;
     }
 
@@ -120,7 +120,7 @@ public class Food extends RealmObject {
      * @return
      *     The protein
      */
-    public Integer getProtein() {
+    public Double getProtein() {
         return protein;
     }
 
@@ -129,7 +129,7 @@ public class Food extends RealmObject {
      * @param protein
      *     The protein
      */
-    public void setProtein(Integer protein) {
+    public void setProtein(Double protein) {
         this.protein = protein;
     }
 
@@ -138,7 +138,7 @@ public class Food extends RealmObject {
      * @return
      *     The pcsingram
      */
-    public Integer getPcsingram() {
+    public Double getPcsingram() {
         return pcsingram;
     }
 
@@ -147,7 +147,7 @@ public class Food extends RealmObject {
      * @param pcsingram
      *     The pcsingram
      */
-    public void setPcsingram(Integer pcsingram) {
+    public void setPcsingram(Double pcsingram) {
         this.pcsingram = pcsingram;
     }
 
@@ -174,7 +174,7 @@ public class Food extends RealmObject {
      * @return
      *     The fat
      */
-    public Integer getFat() {
+    public Double getFat() {
         return fat;
     }
 
@@ -183,7 +183,7 @@ public class Food extends RealmObject {
      * @param fat
      *     The fat
      */
-    public void setFat(Integer fat) {
+    public void setFat(Double fat) {
         this.fat = fat;
     }
 
@@ -246,7 +246,7 @@ public class Food extends RealmObject {
      * @return
      *     The carbohydrates
      */
-    public Integer getCarbohydrates() {
+    public Double getCarbohydrates() {
         return carbohydrates;
     }
 
@@ -255,7 +255,7 @@ public class Food extends RealmObject {
      * @param carbohydrates
      *     The carbohydrates
      */
-    public void setCarbohydrates(Integer carbohydrates) {
+    public void setCarbohydrates(Double carbohydrates) {
         this.carbohydrates = carbohydrates;
     }
 
@@ -300,7 +300,7 @@ public class Food extends RealmObject {
      * @return
      *     The mlingram
      */
-    public Integer getMlingram() {
+    public Double getMlingram() {
         return mlingram;
     }
 
@@ -309,7 +309,7 @@ public class Food extends RealmObject {
      * @param mlingram
      *     The mlingram
      */
-    public void setMlingram(Integer mlingram) {
+    public void setMlingram(Double mlingram) {
         this.mlingram = mlingram;
     }
 
@@ -354,7 +354,7 @@ public class Food extends RealmObject {
      * @return
      *     The cholesterol
      */
-    public Integer getCholesterol() {
+    public Double getCholesterol() {
         return cholesterol;
     }
 
@@ -363,7 +363,7 @@ public class Food extends RealmObject {
      * @param cholesterol
      *     The cholesterol
      */
-    public void setCholesterol(Integer cholesterol) {
+    public void setCholesterol(Double cholesterol) {
         this.cholesterol = cholesterol;
     }
 
@@ -390,7 +390,7 @@ public class Food extends RealmObject {
      * @return
      *     The unsaturatedfat
      */
-    public Integer getUnsaturatedfat() {
+    public Double getUnsaturatedfat() {
         return unsaturatedfat;
     }
 
@@ -399,7 +399,7 @@ public class Food extends RealmObject {
      * @param unsaturatedfat
      *     The unsaturatedfat
      */
-    public void setUnsaturatedfat(Integer unsaturatedfat) {
+    public void setUnsaturatedfat(Double unsaturatedfat) {
         this.unsaturatedfat = unsaturatedfat;
     }
 
@@ -426,7 +426,7 @@ public class Food extends RealmObject {
      * @return
      *     The saturatedfat
      */
-    public Integer getSaturatedfat() {
+    public Double getSaturatedfat() {
         return saturatedfat;
     }
 
@@ -435,7 +435,7 @@ public class Food extends RealmObject {
      * @param saturatedfat
      *     The saturatedfat
      */
-    public void setSaturatedfat(Integer saturatedfat) {
+    public void setSaturatedfat(Double saturatedfat) {
         this.saturatedfat = saturatedfat;
     }
 
@@ -498,7 +498,7 @@ public class Food extends RealmObject {
      * @return
      *     The sodium
      */
-    public Integer getSodium() {
+    public Double getSodium() {
         return sodium;
     }
 
@@ -507,7 +507,7 @@ public class Food extends RealmObject {
      * @param sodium
      *     The sodium
      */
-    public void setSodium(Integer sodium) {
+    public void setSodium(Double sodium) {
         this.sodium = sodium;
     }
 
@@ -534,7 +534,7 @@ public class Food extends RealmObject {
      * @return
      *     The sugar
      */
-    public Integer getSugar() {
+    public Double getSugar() {
         return sugar;
     }
 
@@ -543,7 +543,7 @@ public class Food extends RealmObject {
      * @param sugar
      *     The sugar
      */
-    public void setSugar(Integer sugar) {
+    public void setSugar(Double sugar) {
         this.sugar = sugar;
     }
 
@@ -552,7 +552,7 @@ public class Food extends RealmObject {
      * @return
      *     The potassium
      */
-    public Integer getPotassium() {
+    public Double getPotassium() {
         return potassium;
     }
 
@@ -561,7 +561,7 @@ public class Food extends RealmObject {
      * @param potassium
      *     The potassium
      */
-    public void setPotassium(Integer potassium) {
+    public void setPotassium(Double potassium) {
         this.potassium = potassium;
     }
 
@@ -570,7 +570,7 @@ public class Food extends RealmObject {
      * @return
      *     The calories
      */
-    public Integer getCalories() {
+    public Double getCalories() {
         return calories;
     }
 
@@ -579,7 +579,7 @@ public class Food extends RealmObject {
      * @param calories
      *     The calories
      */
-    public void setCalories(Integer calories) {
+    public void setCalories(Double calories) {
         this.calories = calories;
     }
 

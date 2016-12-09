@@ -10,46 +10,46 @@ public class ServingCategory {
     private Integer defaultsize;
     @SerializedName("name_ru")
     @Expose
-    private Object nameRu;
+    private String nameRu;
     @SerializedName("name_da")
     @Expose
-    private Object nameDa;
+    private String nameDa;
     @SerializedName("name_no")
     @Expose
-    private Object nameNo;
+    private String nameNo;
     @SerializedName("linearsize")
     @Expose
     private Integer linearsize;
     @SerializedName("name_pt")
     @Expose
-    private Object namePt;
+    private String namePt;
     @SerializedName("name")
     @Expose
     private String name;
     @SerializedName("name_sv")
     @Expose
-    private Object nameSv;
+    private String nameSv;
     @SerializedName("name_en")
     @Expose
-    private Object nameEn;
+    private String nameEn;
     @SerializedName("created")
     @Expose
     private Integer created;
     @SerializedName("name_pl")
     @Expose
-    private Object namePl;
+    private String namePl;
     @SerializedName("name_de")
     @Expose
-    private Object nameDe;
+    private String nameDe;
     @SerializedName("lastupdated")
     @Expose
     private Integer lastupdated;
     @SerializedName("name_es")
     @Expose
-    private Object nameEs;
+    private String nameEs;
     @SerializedName("source")
     @Expose
-    private Object source;
+    private String source;
     @SerializedName("usemedian")
     @Expose
     private Integer usemedian;
@@ -58,16 +58,16 @@ public class ServingCategory {
     private Integer oid;
     @SerializedName("name_nl")
     @Expose
-    private Object nameNl;
+    private String nameNl;
     @SerializedName("linearquantity")
     @Expose
-    private Integer linearquantity;
+    private Double linearquantity;
     @SerializedName("name_it")
     @Expose
-    private Object nameIt;
+    private String nameIt;
     @SerializedName("name_fr")
     @Expose
-    private Object nameFr;
+    private String nameFr;
 
     /**
      * 
@@ -101,7 +101,7 @@ public class ServingCategory {
      * @param nameRu
      *     The name_ru
      */
-    public void setNameRu(Object nameRu) {
+    public void setNameRu(String nameRu) {
         this.nameRu = nameRu;
     }
 
@@ -110,7 +110,7 @@ public class ServingCategory {
      * @return
      *     The nameDa
      */
-    public Object getNameDa() {
+    public String getNameDa() {
         return nameDa;
     }
 
@@ -119,7 +119,7 @@ public class ServingCategory {
      * @param nameDa
      *     The name_da
      */
-    public void setNameDa(Object nameDa) {
+    public void setNameDa(String nameDa) {
         this.nameDa = nameDa;
     }
 
@@ -128,7 +128,7 @@ public class ServingCategory {
      * @return
      *     The nameNo
      */
-    public Object getNameNo() {
+    public String getNameNo() {
         return nameNo;
     }
 
@@ -137,7 +137,7 @@ public class ServingCategory {
      * @param nameNo
      *     The name_no
      */
-    public void setNameNo(Object nameNo) {
+    public void setNameNo(String nameNo) {
         this.nameNo = nameNo;
     }
 
@@ -164,7 +164,7 @@ public class ServingCategory {
      * @return
      *     The namePt
      */
-    public Object getNamePt() {
+    public String getNamePt() {
         return namePt;
     }
 
@@ -173,7 +173,7 @@ public class ServingCategory {
      * @param namePt
      *     The name_pt
      */
-    public void setNamePt(Object namePt) {
+    public void setNamePt(String namePt) {
         this.namePt = namePt;
     }
 
@@ -200,7 +200,7 @@ public class ServingCategory {
      * @return
      *     The nameSv
      */
-    public Object getNameSv() {
+    public String getNameSv() {
         return nameSv;
     }
 
@@ -209,7 +209,7 @@ public class ServingCategory {
      * @param nameSv
      *     The name_sv
      */
-    public void setNameSv(Object nameSv) {
+    public void setNameSv(String nameSv) {
         this.nameSv = nameSv;
     }
 
@@ -218,7 +218,7 @@ public class ServingCategory {
      * @return
      *     The nameEn
      */
-    public Object getNameEn() {
+    public String getNameEn() {
         return nameEn;
     }
 
@@ -227,7 +227,7 @@ public class ServingCategory {
      * @param nameEn
      *     The name_en
      */
-    public void setNameEn(Object nameEn) {
+    public void setNameEn(String nameEn) {
         this.nameEn = nameEn;
     }
 
@@ -254,7 +254,7 @@ public class ServingCategory {
      * @return
      *     The namePl
      */
-    public Object getNamePl() {
+    public String getNamePl() {
         return namePl;
     }
 
@@ -263,7 +263,7 @@ public class ServingCategory {
      * @param namePl
      *     The name_pl
      */
-    public void setNamePl(Object namePl) {
+    public void setNamePl(String namePl) {
         this.namePl = namePl;
     }
 
@@ -272,7 +272,7 @@ public class ServingCategory {
      * @return
      *     The nameDe
      */
-    public Object getNameDe() {
+    public String getNameDe() {
         return nameDe;
     }
 
@@ -281,7 +281,7 @@ public class ServingCategory {
      * @param nameDe
      *     The name_de
      */
-    public void setNameDe(Object nameDe) {
+    public void setNameDe(String nameDe) {
         this.nameDe = nameDe;
     }
 
@@ -308,7 +308,7 @@ public class ServingCategory {
      * @return
      *     The nameEs
      */
-    public Object getNameEs() {
+    public String getNameEs() {
         return nameEs;
     }
 
@@ -317,7 +317,7 @@ public class ServingCategory {
      * @param nameEs
      *     The name_es
      */
-    public void setNameEs(Object nameEs) {
+    public void setNameEs(String nameEs) {
         this.nameEs = nameEs;
     }
 
@@ -326,7 +326,7 @@ public class ServingCategory {
      * @return
      *     The source
      */
-    public Object getSource() {
+    public String getSource() {
         return source;
     }
 
@@ -335,7 +335,7 @@ public class ServingCategory {
      * @param source
      *     The source
      */
-    public void setSource(Object source) {
+    public void setSource(String source) {
         this.source = source;
     }
 
@@ -380,7 +380,7 @@ public class ServingCategory {
      * @return
      *     The nameNl
      */
-    public Object getNameNl() {
+    public String getNameNl() {
         return nameNl;
     }
 
@@ -389,7 +389,7 @@ public class ServingCategory {
      * @param nameNl
      *     The name_nl
      */
-    public void setNameNl(Object nameNl) {
+    public void setNameNl(String nameNl) {
         this.nameNl = nameNl;
     }
 
@@ -398,7 +398,7 @@ public class ServingCategory {
      * @return
      *     The linearquantity
      */
-    public Integer getLinearquantity() {
+    public Double getLinearquantity() {
         return linearquantity;
     }
 
@@ -407,7 +407,7 @@ public class ServingCategory {
      * @param linearquantity
      *     The linearquantity
      */
-    public void setLinearquantity(Integer linearquantity) {
+    public void setLinearquantity(Double linearquantity) {
         this.linearquantity = linearquantity;
     }
 
@@ -416,7 +416,7 @@ public class ServingCategory {
      * @return
      *     The nameIt
      */
-    public Object getNameIt() {
+    public String getNameIt() {
         return nameIt;
     }
 
@@ -425,7 +425,7 @@ public class ServingCategory {
      * @param nameIt
      *     The name_it
      */
-    public void setNameIt(Object nameIt) {
+    public void setNameIt(String nameIt) {
         this.nameIt = nameIt;
     }
 
@@ -434,7 +434,7 @@ public class ServingCategory {
      * @return
      *     The nameFr
      */
-    public Object getNameFr() {
+    public String getNameFr() {
         return nameFr;
     }
 
@@ -443,7 +443,7 @@ public class ServingCategory {
      * @param nameFr
      *     The name_fr
      */
-    public void setNameFr(Object nameFr) {
+    public void setNameFr(String nameFr) {
         this.nameFr = nameFr;
     }
 
