@@ -10,7 +10,7 @@
         android:name=".AppSingleton"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".features.MainActivity">
+        <activity android:name=".features.foodList.FoodListActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

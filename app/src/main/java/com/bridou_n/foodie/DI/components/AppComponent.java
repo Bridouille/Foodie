@@ -6,6 +6,7 @@ import com.bridou_n.foodie.API.FoodieService;
 import com.bridou_n.foodie.DI.modules.ApiModule;
 import com.bridou_n.foodie.DI.modules.ContextModule;
 import com.bridou_n.foodie.DI.modules.DatabaseModule;
+import com.bridou_n.foodie.features.foodList.FoodListActivity;
 
 import javax.inject.Singleton;
 
@@ -26,4 +27,5 @@ public interface AppComponent {
     Context context();
     Realm realm();
     FoodieService api();
+    void inject(FoodListActivity activity);
 }

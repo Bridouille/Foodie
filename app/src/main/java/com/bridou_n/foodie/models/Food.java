@@ -3,7 +3,10 @@ package com.bridou_n.foodie.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Food {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Food extends RealmObject {
 
     @SerializedName("fiber")
     @Expose
@@ -67,9 +70,10 @@ public class Food {
     private Integer typeofmeasurement;
     @SerializedName("source")
     @Expose
-    private Object source;
+    private Integer source;
     @SerializedName("id")
     @Expose
+    @PrimaryKey
     private Integer id;
     @SerializedName("sodium")
     @Expose
@@ -458,7 +462,7 @@ public class Food {
      * @return
      *     The source
      */
-    public Object getSource() {
+    public Integer getSource() {
         return source;
     }
 
@@ -467,7 +471,7 @@ public class Food {
      * @param source
      *     The source
      */
-    public void setSource(Object source) {
+    public void setSource(Integer source) {
         this.source = source;
     }
 
