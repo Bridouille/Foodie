@@ -12,8 +12,6 @@ import rx.Observable;
 
 public interface FoodieService {
 
-    // TODO: 09/12/2016 change language based on phone locale ?
-
-    @GET("icebox/v1/foods/fr/se/{search}")
+    @GET("icebox/v1/foods/en/se/{search}")
     Observable<SearchFoodResponse> getFoodList(@Path("search") String s);
 }

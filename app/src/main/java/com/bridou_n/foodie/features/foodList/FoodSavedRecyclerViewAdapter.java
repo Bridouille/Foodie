@@ -58,7 +58,6 @@ public class FoodSavedRecyclerViewAdapter extends RealmRecyclerViewAdapter<Food,
                 realm.executeTransactionAsync(tRealm -> tRealm.where(Food.class).equalTo("id", id).findFirst().deleteFromRealm());
             });
         }
-
     }
 
     @Override
@@ -69,5 +68,9 @@ public class FoodSavedRecyclerViewAdapter extends RealmRecyclerViewAdapter<Food,
     @Override
     public void onBindViewHolder(FoodHolder holder, int position) {
         holder.bindTo(getItem(position));
+    }
+
+    public boolean isEmpty() {
+        return super.getData() == null || super.getData().size() == 0;
     }
 }

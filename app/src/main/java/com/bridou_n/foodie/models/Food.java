@@ -25,7 +25,7 @@ public class Food extends RealmObject {
     private Double fat;
     @SerializedName("gramsperserving")
     @Expose
-    private Integer gramsperserving;
+    private Double gramsperserving;
     @SerializedName("showonlysametype")
     @Expose
     private Integer showonlysametype;
@@ -192,7 +192,7 @@ public class Food extends RealmObject {
      * @return
      *     The gramsperserving
      */
-    public Integer getGramsperserving() {
+    public Double getGramsperserving() {
         return gramsperserving;
     }
 
@@ -201,7 +201,7 @@ public class Food extends RealmObject {
      * @param gramsperserving
      *     The gramsperserving
      */
-    public void setGramsperserving(Integer gramsperserving) {
+    public void setGramsperserving(Double gramsperserving) {
         this.gramsperserving = gramsperserving;
     }
 

@@ -30,7 +30,7 @@ public class FoodListPresenter {
         if (search != null && search.length() > 0) {
             searchFood(search);
         } else {
-            getSavedFood();
+            view.showSavedFood();
         }
     }
 
@@ -55,10 +55,6 @@ public class FoodListPresenter {
                     }
                     view.showEmptyState(R.string.no_food_matches_your_search);
                 });
-    }
-
-    public void getSavedFood() {
-        view.showSavedFood();
     }
 
     public void takeView(FoodListActivity view) {

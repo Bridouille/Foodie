@@ -60,12 +60,26 @@ public class FoodListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         AppSingleton.appComponent().inject(this);
 
+        RealmResults<Food> foodSaved = realm.where(Food.class).findAllSortedAsync(new String[]{"title"}, new Sort[]{Sort.ASCENDING});
+
+        foodSaved.addChangeListener(result -> {
+            if (rv.getAdapter() == foodSavedAdapter) {
+                if (result.size() == 0) { // Show the empty state
+                    showEmptyState(R.string.you_dont_have_any_saved_food);
+                } else { // Show the list of food
+                    showSavedFood();
+                }
+            }
+        });
+
+        foodSavedAdapter = new FoodSavedRecyclerViewAdapter(this, foodSaved, true, realm);
+
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        rv.setAdapter(foodSavedAdapter);
 
         presenter = new FoodListPresenter(this, api);
-        presenter.getSavedFood();
     }
 
     @Override
@@ -89,20 +103,9 @@ public class FoodListActivity extends AppCompatActivity {
     public void showSavedFood() {
         hideAll();
 
-        if (foodSavedAdapter == null) {
-            RealmResults<Food> foodSaved = realm.where(Food.class).findAllSortedAsync(new String[]{"title",}, new Sort[]{Sort.ASCENDING});
-
-            foodSaved.addChangeListener(result -> {
-                if (rv.getAdapter() == foodSavedAdapter) {
-                    if (result.size() == 0) { // Show the empty state
-                        showEmptyState(R.string.you_dont_have_any_saved_food);
-                    } else { // Show the list of food
-                        showSavedFood();
-                    }
-                }
-            });
-
-            foodSavedAdapter = new FoodSavedRecyclerViewAdapter(this, foodSaved, true, realm);
+        if (foodSavedAdapter.isEmpty()) {
+            showEmptyState(R.string.you_dont_have_any_saved_food);
+            return ;
         }
 
         rv.setAdapter(foodSavedAdapter);
@@ -115,7 +118,7 @@ public class FoodListActivity extends AppCompatActivity {
         emptyContent.setText(getString(what));
     }
 
-    public Observable<Integer> showError(String err) { // TODO: 09/12/2016 verify the view
+    public Observable<Integer> showError(String err) {
         hideAll();
         error.setVisibility(View.VISIBLE);
         errorContent.setText(err);
@@ -141,7 +144,7 @@ public class FoodListActivity extends AppCompatActivity {
 
         searchView.setQueryHint(getString(R.string.search_food));
 
-        RxSearchView.queryTextChanges(searchView)
+        RxSearchView.queryTextChanges(searchView) // Watch for the user's typing
                 .skip(1)
                 .debounce(400, TimeUnit.MILLISECONDS)
                 .map(CharSequence::toString)
