@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -71,15 +72,15 @@ public class FoodListActivity extends AppCompatActivity {
 
         RealmResults<Food> foodSaved = realm.where(Food.class).findAllSortedAsync(new String[]{"title"}, new Sort[]{Sort.ASCENDING});
 
-        foodSaved.addChangeListener(result -> {
-            if (rv.getAdapter() == foodSavedAdapter) {
-                if (result.size() == 0) { // Show the empty state
-                    showEmptyState(R.string.you_dont_have_any_saved_food);
-                } else { // Show the list of food
-                    showSavedFood();
-                }
-            }
-        });
+        foodSaved.asObservable()
+                .filter(r -> rv.getAdapter() == foodSavedAdapter) // We only care when we're displaying the saved food
+                .subscribe(r -> {
+                    if (r.size() == 0) { // Show the empty state
+                        showEmptyState(R.string.you_dont_have_any_saved_food);
+                    } else { // Show the list of food
+                        showSavedFood();
+                    }
+                });
 
         foodSavedAdapter = new FoodSavedRecyclerViewAdapter(this, foodSaved, true, realm);
 
